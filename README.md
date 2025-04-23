@@ -21,6 +21,13 @@ Custom Tailwind components are configured in `app/assets/tailwind/application.cs
 }
 ```
 
+### SEO Best Practices
+- Dynamic page titles with consistent formatting
+- SEO-optimized meta descriptions (160 characters)
+- Open Graph meta tags for social sharing
+- Semantic HTML structure
+- Configurable application name via initializer
+
 ### Static Pages
 - Configured with a static pages controller
 - Includes Index, Welcome, and About pages
@@ -39,6 +46,14 @@ Custom Tailwind components are configured in `app/assets/tailwind/application.cs
 - Tailwind Components: `app/assets/tailwind/application.css`
 - Routes: `config/routes.rb`
 - Static Pages: `app/views/pages/*`
+- App Configuration: `config/initializers/application_name.rb`
+
+### Page Customization
+Set page title and meta description in your views:
+```erb
+<% page_title "Your Page Title" %>
+<% meta_description "Your SEO-friendly description (max 160 characters)" %>
+```
 
 ### Live Reload
 Development server includes live reload functionality using:

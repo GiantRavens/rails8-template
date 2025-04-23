@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html class="h-full">
   <head>
-    <title><%= content_for(:title) || "Rails8 Template" %></title>
+    <title><%= page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= meta_description %>">
+    <%= og_meta_tags %>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -33,7 +35,7 @@
               <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span class="ml-2 text-white font-semibold text-lg">Rails 8 Template</span>
+            <span class="ml-2 text-white font-semibold text-lg"><%= app_name %></span>
           <% end %>
         </div>
         <div class="flex space-x-4">
@@ -53,7 +55,7 @@
   <footer class="bg-gray-200 mt-auto">
     <div class="max-w-[70%] mx-auto px-4 sm:px-6 lg:px-8 py-6 transition-all duration-300">
       <div class="text-center text-gray-600 text-sm">
-        <div class="font-semibold">Rails 8 Template</div>
+        <div class="font-semibold"><%= app_name %></div>
         <div>&copy;<%= Time.current.year %> All rights reserved</div>
       </div>
     </div>
