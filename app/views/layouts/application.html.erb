@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <title><%= content_for(:title) || "Rails8 Template" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="h-full flex flex-col">
+  <nav class="bg-[#1a202c] sticky top-0 z-50 shadow-md">
+    <div class="max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <%= link_to root_path, class: "flex items-center" do %>
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="ml-2 text-white font-semibold text-lg">Rails 8 Template</span>
+          <% end %>
+        </div>
+        <div class="flex space-x-4">
+          <%= link_to "Welcome", welcome_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
+          <%= link_to "About", about_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+    <div class="max-w-[70%] mx-auto px-4 sm:px-6 lg:px-8 py-8 transition-all duration-300">
+      <%= yield %>
+    </div>
+  </main>
+
+  <footer class="bg-gray-200 mt-auto">
+    <div class="max-w-[70%] mx-auto px-4 sm:px-6 lg:px-8 py-6 transition-all duration-300">
+      <div class="text-center text-gray-600 text-sm">
+        <div class="font-semibold">Rails 8 Template</div>
+        <div>&copy;<%= Time.current.year %> All rights reserved</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
