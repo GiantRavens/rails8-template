@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  web:
+    build: 
+      context: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/rails
+      - bundle:/usr/local/bundle
+      - ./public:/rails/public  # Ensure public assets are persisted
+    environment:
+      - RAILS_ENV=production
+      - SECRET_KEY_BASE=dummy_key_for_test
+      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_LOG_TO_STDOUT=true
+      - NODE_ENV=production
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails assets:precompile && bundle exec rails server -b 0.0.0.0 -p 80"
+
+volumes:
+  bundle:

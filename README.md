@@ -35,9 +35,38 @@ Custom Tailwind components are configured in `app/assets/tailwind/application.cs
 
 ## Getting Started
 
+### Development
+
 1. Clone this repository
 2. Run `bundle install`
-3. Start the server with `rails server`
+3. Start the development server:
+   ```bash
+   bin/dev
+   ```
+4. Visit http://localhost:3000
+
+### Production-like Environment (Docker)
+
+Test the production build locally using Docker:
+
+1. Make sure Docker is running
+2. Build and start the container:
+   ```bash
+   docker-compose up --build
+   ```
+3. Visit http://localhost (note: no port needed)
+4. To stop the container:
+   ```bash
+   docker-compose down
+   ```
+
+#### Development vs Production Differences
+- Development serves uncompressed assets individually
+- Production concatenates and minifies all assets
+- Development includes detailed error pages and debugging tools
+- Production uses streamlined error pages
+- Development has live reload
+- Production optimizes for performance and security
 
 ## Development
 
@@ -47,6 +76,7 @@ Custom Tailwind components are configured in `app/assets/tailwind/application.cs
 - Routes: `config/routes.rb`
 - Static Pages: `app/views/pages/*`
 - App Configuration: `config/initializers/application_name.rb`
+- Docker Configuration: `docker-compose.yml` and `Dockerfile`
 
 ### Page Customization
 Set page title and meta description in your views:
@@ -61,3 +91,4 @@ Set page title and meta description in your views:
 - Tailwind CSS
 - Propshaft asset pipeline
 - SQLite3 database
+- Docker for production testing
