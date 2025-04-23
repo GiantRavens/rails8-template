@@ -37,7 +37,7 @@ Custom Tailwind components are configured in `app/assets/tailwind/application.cs
 
 1. Clone this repository
 2. Run `bundle install`
-3. Start the server with `bin/dev` (includes live reload)
+3. Start the server with `rails server`
 
 ## Development
 
@@ -55,15 +55,9 @@ Set page title and meta description in your views:
 <% meta_description "Your SEO-friendly description (max 160 characters)" %>
 ```
 
-### Live Reload
-Development server includes live reload functionality using:
-- hotwire-livereload gem
-- browser-sync integration
-
 ## Technologies
 
 - Ruby on Rails 8
 - Tailwind CSS
-- Hotwire
 - Propshaft asset pipeline
 - SQLite3 database
