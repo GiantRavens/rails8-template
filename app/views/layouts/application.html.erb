@@ -39,6 +39,7 @@
           <% end %>
         </div>
         <div class="flex space-x-4">
+          <%= link_to "Posts", posts_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
           <%= link_to "Welcome", welcome_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
           <%= link_to "About", about_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
         </div>
@@ -47,7 +48,7 @@
   </nav>
 
   <main class="flex-grow">
-    <div class="max-w-[70%] mx-auto px-4 sm:px-6 lg:px-8 py-8 transition-all duration-300">
+    <div class="max-w-[75%] mx-auto px-4 sm:px-6 lg:px-8 py-8 transition-all duration-300">
       <%= yield %>
     </div>
   </main>

@@ -4,4 +4,36 @@
   .hd1-hero {
     @apply text-4xl font-bold text-gray-900 mb-6 mt-8 leading-tight tracking-tight;
   }
+  .hd2 {
+    @apply text-2xl font-bold text-gray-900 mb-6 mt-8 leading-tight tracking-tight;
+  }
+  .form-container {
+    @apply mx-auto bg-gray-200 p-8 rounded-md shadow-sm border border-gray-200;
+  }
+  .form-section {
+    @apply space-y-6;
+  }
+  .form-field-group {
+    @apply mb-6;
+  }
+  .form-label {
+    @apply block text-gray-700 text-sm font-bold mb-2;
+  }
+  .form-field {
+    @apply appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-green-500;
+  }
+  .form-field-error {
+    @apply border-red-500;
+  }
+  .form-hint {
+    @apply text-gray-400 text-xs italic mb-2 pl-1;
+  }
+  .form-error {
+    @apply text-red-500 text-xs italic;
+  }
+  .submit-button {
+    @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md shadow-sm transition w-full md:w-auto;
+  }
+  .action-bar { @apply w-full flex justify-center items-center mt-4 py-4 space-x-4; }
+  .action-link { @apply text-base font-medium font-bold text-gray-700 hover:text-green-600 transition; sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 px-3.5 py-2.5 inline-block font-medium }
 }

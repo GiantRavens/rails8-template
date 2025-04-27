@@ -1,0 +1,7 @@
+<% content_for :title, "Create a New Blog Post | #{app_name}" %>
+<h1 class="hd1-hero">New post</h1>
+<%= render "form", post: @post %>
+
+<div class="action-bar">
+  <%= link_to "Back to posts", posts_path %>
+</div>

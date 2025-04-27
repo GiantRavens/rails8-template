@@ -1,0 +1,18 @@
+<% content_for :title, "reading: #{@post.title} | #{app_name}" %>
+<% if notice.present? %>
+  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+<% end %>
+<h1 class="hd1-hero">
+  <%= link_to @post.title, edit_post_path(@post), class: "hover:text-green-600" %>
+</h1>
+<p class="text-xs text-gray-500 align-bottom">
+  <%= @post.published_status %>
+</p>
+<p class="mt-4 mb-6"><%= @post.body %></p>
+
+<div class="border-t border-gray-200 mt-4 mb-2"></div>
+<div class="action-bar py-0 my-4">
+  <%= link_to "Edit this post", edit_post_path(@post), class: "action-link" %>
+  <%= link_to "Back to posts", posts_path, class: "action-link" %>
+  <%= button_to "Destroy this post", @post, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "action-link hover:text-red-600", data: { turbo_confirm: "Are you sure?" } %>
+</div>

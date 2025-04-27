@@ -1,0 +1,52 @@
+<div class="form-container">
+  <%= form_with(model: post, class: "form-section") do |f| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3 mb-6">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul class="list-disc ml-6">
+          <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-field-group">
+      <%= f.label :title, class: "form-label" %>
+      <%= f.text_field :title, 
+          class: ["form-field", post.errors[:title].any? ? "form-field-error" : ""], 
+          placeholder: "Create Post Title",
+          autofocus: true %>
+      <% if post.errors[:title].any? %>
+        <p class="form-error"><%= post.errors[:title].first %></p>
+      <% else %>
+        <p class="form-hint">Give your post a clear, engaging title.</p>
+      <% end %>
+    </div>
+
+    <div class="form-field-group">
+      <%= f.label :body, class: "form-label" %>
+      <%= f.text_area :body, 
+          rows: 10, 
+          class: ["form-field", post.errors[:body].any? ? "form-field-error" : ""], 
+          placeholder: "Write post content here" %>
+      <% if post.errors[:body].any? %>
+        <p class="form-error"><%= post.errors[:body].first %></p>
+      <% else %>
+        <p class="form-hint">Your post content goes here.</p>
+      <% end %>
+    </div>
+
+    <div class="mb-6 bg-gray-100 p-4 rounded-md">
+      <div class="flex items-center">
+        <%= f.check_box :is_published, class: "h-4 w-4 rounded-sm border-gray-300 text-indigo-600 focus:ring-indigo-500 mr-2" %>
+        <%= f.label :is_published, "Publish Now?", class: "form-label pt-2" %>
+      </div>
+      <p class="form-hint">When checked, this post will be visible to everyone.</p>
+    </div>
+
+    <div class="mt-8">
+      <%= f.submit post.new_record? ? "Create Post" : "Update Post", class: "submit-button w-full" %>
+    </div>
+  <% end %>
+</div>

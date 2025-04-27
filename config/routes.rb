@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts, param: :id
   root "pages#index"
   get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"

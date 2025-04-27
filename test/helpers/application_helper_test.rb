@@ -27,7 +27,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test "og_meta_tags includes required Open Graph tags" do
     page_title "Test Page"
     meta_description "Test Description"
-    
+
     og_tags = og_meta_tags
     assert_match /property="og:title"/, og_tags
     assert_match /property="og:description"/, og_tags
