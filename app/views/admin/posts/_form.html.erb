@@ -1,60 +1,52 @@
-<%= form_with(model: [:admin, post], class: "space-y-8 divide-y divide-gray-200") do |form| %>
-  <div class="space-y-8 divide-y divide-gray-200">
-    <div>
-      <div>
-        <h3 class="text-lg leading-6 font-medium text-gray-900">Post Information</h3>
-        <p class="mt-1 text-sm text-gray-500">This information will be displayed publicly on the blog.</p>
-      </div>
-
-      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-        <div class="sm:col-span-6">
-          <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
-          <div class="mt-1">
-            <%= form.text_field :title, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-          </div>
-          <% if post.errors.include?(:title) %>
-            <p class="mt-2 text-sm text-red-600"><%= post.errors.full_messages_for(:title).join(", ") %></p>
-          <% end %>
-        </div>
-
-        <div class="sm:col-span-6">
-          <%= form.label :body, class: "block text-sm font-medium text-gray-700" %>
-          <div class="mt-1">
-            <%= form.text_area :body, rows: 10, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-          </div>
-          <p class="mt-2 text-sm text-gray-500">Write in Markdown format. You can use # for headers, **bold**, *italic*, [links](http://example.com), etc.</p>
-          <% if post.errors.include?(:body) %>
-            <p class="mt-2 text-sm text-red-600"><%= post.errors.full_messages_for(:body).join(", ") %></p>
-          <% end %>
-        </div>
-
-        <div class="sm:col-span-3">
-          <div class="flex items-start">
-            <div class="flex items-center h-5">
-              <%= form.check_box :is_published, class: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" %>
-            </div>
-            <div class="ml-3 text-sm">
-              <%= form.label :is_published, "Published", class: "font-medium text-gray-700" %>
-              <p class="text-gray-500">Check this box to make the post publicly visible.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="sm:col-span-3">
-          <%= form.label :published_date, class: "block text-sm font-medium text-gray-700" %>
-          <div class="mt-1">
-            <%= form.date_field :published_date, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-          </div>
-          <p class="mt-2 text-sm text-gray-500">Only relevant if the post is published.</p>
-        </div>
-      </div>
+<div class="form-container">
+  <%= form_with(model: [:admin, post], class: "form-section") do |form| %>
+    <div class="form-field-group">
+      <h3 class="hd2-card">Post Information</h3>
+      <p class="form-hint">This information will be displayed publicly on the blog.</p>
     </div>
-  </div>
 
-  <div class="pt-5">
-    <div class="flex justify-end">
-      <%= link_to "Cancel", admin_posts_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-      <%= form.submit class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    <div class="form-field-group">
+      <%= form.label :title, class: "form-label" %>
+      <%= form.text_field :title, 
+          class: ["form-field", post.errors[:title].any? ? "form-field-error" : ""], 
+          placeholder: "Post Title" %>
+      <% if post.errors[:title].any? %>
+        <p class="form-error"><%= post.errors[:title].first %></p>
+      <% else %>
+        <p class="form-hint">Give your post a clear, engaging title.</p>
+      <% end %>
     </div>
-  </div>
-<% end %>
+
+    <div class="form-field-group">
+      <%= form.label :body, class: "form-label" %>
+      <%= form.text_area :body, 
+          rows: 10, 
+          class: ["form-field", post.errors[:body].any? ? "form-field-error" : ""], 
+          placeholder: "Write post content here in Markdown..." %>
+      <% if post.errors[:body].any? %>
+        <p class="form-error"><%= post.errors[:body].first %></p>
+      <% else %>
+        <p class="form-hint">Write in Markdown format. You can use # for headers, **bold**, *italic*, [links](http://example.com), etc.</p>
+      <% end %>
+    </div>
+
+    <div class="mb-6 bg-gray-100 p-4 rounded-md">
+      <div class="flex items-center">
+        <%= form.check_box :is_published, class: "h-4 w-4 rounded-sm border-gray-300 text-indigo-600 focus:ring-indigo-500 mr-2" %>
+        <%= form.label :is_published, "Published", class: "form-label pt-2" %>
+      </div>
+      <p class="form-hint">Check this box to make the post publicly visible.</p>
+    </div>
+
+    <div class="form-field-group">
+      <%= form.label :published_date, class: "form-label" %>
+      <%= form.date_field :published_date, 
+          class: ["form-field", post.errors[:published_date].any? ? "form-field-error" : ""] %>
+      <p class="form-hint">Only relevant if the post is published.</p>
+    </div>
+
+    <div class="mt-8 flex justify-end space-x-3">
+      <%= form.submit class: "submit-button w-full" %>
+    </div>
+  <% end %>
+</div>
