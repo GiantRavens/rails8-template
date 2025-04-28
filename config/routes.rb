@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     get '/', to: 'dashboard#index', as: :root
-    resources :users
-    resources :posts
+    resources :users, except: [:show]
+    resources :posts, except: [:show]
   end
   
   resources :posts, param: :id

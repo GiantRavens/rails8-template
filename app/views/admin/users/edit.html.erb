@@ -1,14 +1,14 @@
+<% page_title "Admin Edit #{@user.full_name}" %>
+<% meta_description "Administrator edit #{@user.email} user information in the #{Rails.application.config.app_name} application." %>
 <div class="mb-8 flex justify-between items-center">
   <div>
-    <h1 class="text-3xl font-bold text-gray-900">Edit User</h1>
+    <h1 class="hd1-hero">Admin Edit User</h1>
     <p class="mt-2 text-sm text-gray-700">Update user information for <%= @user.email %></p>
   </div>
   <div class="flex space-x-3">
-    <%= link_to "View User", admin_user_path(@user), class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
     <%= link_to "Back to Users", admin_users_path, class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
   </div>
 </div>
-
 <div class="bg-white shadow overflow-hidden sm:rounded-lg p-6">
   <%= render "form", user: @user %>
 </div>
