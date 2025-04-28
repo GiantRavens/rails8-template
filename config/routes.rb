@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  # Admin routes
+  namespace :admin do
+    get '/', to: 'dashboard#index', as: :root
+    resources :users
+    resources :posts
+  end
+  
   resources :posts, param: :id
   # Define the root path
-  root to: 'posts#index'
+  root to: 'pages#index'
   get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"
   get "dashboard", to: "pages#dashboard"

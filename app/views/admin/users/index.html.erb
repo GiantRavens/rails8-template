@@ -1,0 +1,48 @@
+<div class="mb-8 flex justify-between items-center">
+  <div>
+    <h1 class="text-3xl font-bold text-gray-900">Users</h1>
+    <p class="mt-2 text-sm text-gray-700">Manage all users in the system.</p>
+  </div>
+  <div>
+    <%= link_to "New User", new_admin_user_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+</div>
+
+<div class="bg-white shadow overflow-hidden sm:rounded-md">
+  <ul role="list" class="divide-y divide-gray-200">
+    <% @users.each do |user| %>
+      <li>
+        <div class="px-4 py-4 flex items-center sm:px-6">
+          <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
+            <div>
+              <div class="flex text-sm">
+                <p class="font-medium text-indigo-600 truncate"><%= user.email %></p>
+                <p class="ml-1 flex-shrink-0 font-normal text-gray-500">
+                  <% if user.is_admin? %>
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Admin</span>
+                  <% end %>
+                </p>
+              </div>
+              <div class="mt-2 flex">
+                <div class="flex items-center text-sm text-gray-500">
+                  <p>
+                    <%= user.full_name %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+              <div class="flex overflow-hidden">
+                <div class="flex space-x-2">
+                  <%= link_to "View", admin_user_path(user), class: "inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+                  <%= link_to "Edit", edit_admin_user_path(user), class: "inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+                  <%= button_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -42,6 +42,9 @@
             <%= link_to "About", about_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
             <% if user_signed_in? %>
               <%= link_to user_display_name, dashboard_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
+              <% if current_user.is_admin? %>
+                <%= link_to "Admin", admin_root_path, class: "bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-md text-sm font-medium" %>
+              <% end %>
               <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium bg-transparent border-none cursor-pointer" %>
             <% else %>
               <%= link_to "Sign In", new_user_session_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
@@ -62,7 +65,7 @@
       end %>
         <div class="shadow-lg border-l-4 px-5 py-4 rounded-md font-medium transition-all duration-300 <%= color %> relative flash-message" data-flash-target="message">
           <button type="button" class="absolute top-2 right-2 text-lg text-gray-400 hover:text-gray-700 focus:outline-none flash-close" data-action="click->flash#close" aria-label="Close">&times;</button>
-          <span class="block" style="white-space:pre-line"><%= message.html_safe %></span>
+          <span class="block" style="white-space:pre-line"><%= message %></span>
         </div>
       <% end %>
     </div>

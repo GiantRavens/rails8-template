@@ -1,8 +1,8 @@
 <div class="max-w-4xl mx-auto">
-  <h1 class="hd1-hero">Welcome to Your Dashboard</h1>
+  <h1 class="hd1-hero"><%= current_user.full_name %>'s Dashboard</h1>
   
   <div class="bg-white shadow-md rounded-lg p-6 mb-6">
-    <h2 class="hd2 mb-4">Your Profile</h2>
+    <h2 class="hd2-card">Profile</h2>
     <% if current_user %>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -34,8 +34,8 @@
     <% end %>
   </div>
   
-  <div class="bg-white shadow-md rounded-lg p-6">
-    <h2 class="hd2 mb-4">Your Posts</h2>
+  <div class="bg-white shadow-md rounded-lg px-6 py-6">
+    <h2 class="hd2-card">Blog Posts</h2>
     
     <% if current_user && current_user.posts.any? %>
       <div class="space-y-4">

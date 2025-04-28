@@ -23,6 +23,12 @@ class User < ApplicationRecord
     end
   end
   
+  # Admin methods
+  def is_admin?
+    # Handle both boolean and integer values (0/1)
+    is_admin == true || is_admin == 1 || is_admin == '1'
+  end
+  
   private
   
   def set_uuid7

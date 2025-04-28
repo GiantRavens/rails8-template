@@ -1,0 +1,115 @@
+<%= form_with(model: [:admin, user], class: "space-y-8 divide-y divide-gray-200") do |form| %>
+  <div class="space-y-8 divide-y divide-gray-200">
+    <div>
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">User Information</h3>
+        <p class="mt-1 text-sm text-gray-500">Basic information about the user account.</p>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.email_field :email, autocomplete: "email", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          </div>
+          <% if user.errors.include?(:email) %>
+            <p class="mt-2 text-sm text-red-600"><%= user.errors.full_messages_for(:email).join(", ") %></p>
+          <% end %>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= form.label :first_name, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_field :first_name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          </div>
+          <% if user.errors.include?(:first_name) %>
+            <p class="mt-2 text-sm text-red-600"><%= user.errors.full_messages_for(:first_name).join(", ") %></p>
+          <% end %>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= form.label :last_name, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_field :last_name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          </div>
+          <% if user.errors.include?(:last_name) %>
+            <p class="mt-2 text-sm text-red-600"><%= user.errors.full_messages_for(:last_name).join(", ") %></p>
+          <% end %>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= form.label :preferred_name, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_field :preferred_name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          </div>
+          <% if user.errors.include?(:preferred_name) %>
+            <p class="mt-2 text-sm text-red-600"><%= user.errors.full_messages_for(:preferred_name).join(", ") %></p>
+          <% end %>
+        </div>
+
+        <div class="sm:col-span-6">
+          <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_area :bio, rows: 4, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          </div>
+          <% if user.errors.include?(:bio) %>
+            <p class="mt-2 text-sm text-red-600"><%= user.errors.full_messages_for(:bio).join(", ") %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-8">
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">Authentication</h3>
+        <p class="mt-1 text-sm text-gray-500">Password and access settings.</p>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.password_field :password, autocomplete: "new-password", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          </div>
+          <% if user.new_record? %>
+            <p class="mt-2 text-sm text-gray-500">Password is required for new users.</p>
+          <% else %>
+            <p class="mt-2 text-sm text-gray-500">Leave blank if you don't want to change the password.</p>
+          <% end %>
+          <% if user.errors.include?(:password) %>
+            <p class="mt-2 text-sm text-red-600"><%= user.errors.full_messages_for(:password).join(", ") %></p>
+          <% end %>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= form.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          </div>
+          <% if user.errors.include?(:password_confirmation) %>
+            <p class="mt-2 text-sm text-red-600"><%= user.errors.full_messages_for(:password_confirmation).join(", ") %></p>
+          <% end %>
+        </div>
+
+        <div class="sm:col-span-4">
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <%= form.check_box :is_admin, class: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" %>
+            </div>
+            <div class="ml-3 text-sm">
+              <%= form.label :is_admin, "Admin Access", class: "font-medium text-gray-700" %>
+              <p class="text-gray-500">Grant admin privileges to this user.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-5">
+    <div class="flex justify-end">
+      <%= link_to "Cancel", admin_users_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <%= form.submit class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    </div>
+  </div>
+<% end %>

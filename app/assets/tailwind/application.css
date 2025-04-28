@@ -7,6 +7,9 @@
   .hd2 {
     @apply text-2xl font-bold text-gray-900 mb-6 mt-8 leading-tight tracking-tight;
   }
+  .hd2-card {
+    @apply text-2xl font-bold text-gray-900 mb-6 mt-0 leading-tight tracking-tight;
+  }
   .form-container {
     @apply mx-auto bg-gray-200 p-8 rounded-md shadow-sm border border-gray-200;
   }

@@ -1,0 +1,133 @@
+<div class="mb-8">
+  <h1 class="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+  <p class="mt-2 text-sm text-gray-700">Welcome to the admin dashboard for <%= Rails.application.config.app_name %>.</p>
+</div>
+
+<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  <!-- Stats Cards -->
+  <div class="bg-white overflow-hidden shadow rounded-lg">
+    <div class="px-4 py-5 sm:p-6">
+      <div class="flex items-center">
+        <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+          <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197zM13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <div class="ml-5 w-0 flex-1">
+          <dl>
+            <dt class="text-sm font-medium text-gray-500 truncate">Total Users</dt>
+            <dd>
+              <div class="text-lg font-medium text-gray-900"><%= @user_count %></div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 px-4 py-4 sm:px-6">
+      <div class="text-sm">
+        <a href="<%= admin_users_path %>" class="font-medium text-indigo-600 hover:text-indigo-500">View all users<span class="sr-only"> Total Users</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white overflow-hidden shadow rounded-lg">
+    <div class="px-4 py-5 sm:p-6">
+      <div class="flex items-center">
+        <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+          <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0h2a2 2 0 012 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2v-2a2 2 0 012-2zm0 0h2a2 2 0 012 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2v-2a2 2 0 012-2z" />
+          </svg>
+        </div>
+        <div class="ml-5 w-0 flex-1">
+          <dl>
+            <dt class="text-sm font-medium text-gray-500 truncate">Total Posts</dt>
+            <dd>
+              <div class="text-lg font-medium text-gray-900"><%= @post_count %></div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 px-4 py-4 sm:px-6">
+      <div class="text-sm">
+        <a href="<%= admin_posts_path %>" class="font-medium text-indigo-600 hover:text-indigo-500">View all posts<span class="sr-only"> Total Posts</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Recent Users -->
+<div class="mt-8">
+  <h2 class="text-lg leading-6 font-medium text-gray-900">Recent Users</h2>
+  <div class="mt-2 bg-white shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-200">
+      <% @recent_users.each do |user| %>
+        <li>
+          <a href="<%= admin_user_path(user) %>" class="block hover:bg-gray-50">
+            <div class="px-4 py-4 sm:px-6">
+              <div class="flex items-center justify-between">
+                <p class="text-sm font-medium text-indigo-600 truncate"><%= user.email %></p>
+                <div class="ml-2 flex-shrink-0 flex">
+                  <% if user.is_admin? %>
+                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Admin</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="mt-2 sm:flex sm:justify-between">
+                <div class="sm:flex">
+                  <p class="flex items-center text-sm text-gray-500">
+                    <%= user.full_name %>
+                  </p>
+                </div>
+                <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+                  <p>
+                    Joined <%= time_ago_in_words(user.created_at) %> ago
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- Recent Posts -->
+<div class="mt-8">
+  <h2 class="text-lg leading-6 font-medium text-gray-900">Recent Posts</h2>
+  <div class="mt-2 bg-white shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-200">
+      <% @recent_posts.each do |post| %>
+        <li>
+          <a href="<%= admin_post_path(post) %>" class="block hover:bg-gray-50">
+            <div class="px-4 py-4 sm:px-6">
+              <div class="flex items-center justify-between">
+                <p class="text-sm font-medium text-indigo-600 truncate"><%= post.title %></p>
+                <div class="ml-2 flex-shrink-0 flex">
+                  <% if post.is_published %>
+                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Published</p>
+                  <% else %>
+                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Draft</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="mt-2 sm:flex sm:justify-between">
+                <div class="sm:flex">
+                  <p class="flex items-center text-sm text-gray-500">
+                    By <%= post.user&.full_name || 'Unknown' %>
+                  </p>
+                </div>
+                <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+                  <p>
+                    Created <%= time_ago_in_words(post.created_at) %> ago
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
