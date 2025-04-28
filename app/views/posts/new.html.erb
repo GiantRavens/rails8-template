@@ -1,6 +1,8 @@
 <% content_for :title, "Create a New Blog Post | #{app_name}" %>
-<h1 class="hd1-hero">New post</h1>
+<h1 class="hd1-hero">Create a new blog post</h1>
 <%= render "form", post: @post %>
+
+<%# No per-page notice flash here, nothing to remove %>
 
 <div class="action-bar">
   <%= link_to "Back to posts", posts_path %>

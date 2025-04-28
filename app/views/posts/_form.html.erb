@@ -1,15 +1,6 @@
 <div class="form-container">
   <%= form_with(model: post, class: "form-section") do |f| %>
-    <% if post.errors.any? %>
-      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3 mb-6">
-        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-        <ul class="list-disc ml-6">
-          <% post.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%# Removed error explanation block; errors now shown via floating flash %>
 
     <div class="form-field-group">
       <%= f.label :title, class: "form-label" %>
@@ -27,13 +18,14 @@
     <div class="form-field-group">
       <%= f.label :body, class: "form-label" %>
       <%= f.text_area :body, 
-          rows: 10, 
+          data: { controller: "markdown-editor" },
           class: ["form-field", post.errors[:body].any? ? "form-field-error" : ""], 
-          placeholder: "Write post content here" %>
+          rows: 12, 
+          placeholder: "Write post content here in Markdown..." %>
       <% if post.errors[:body].any? %>
         <p class="form-error"><%= post.errors[:body].first %></p>
       <% else %>
-        <p class="form-hint">Your post content goes here.</p>
+        <p class="form-hint">Use Markdown for formatting. Supports headings, lists, links, and more.</p>
       <% end %>
     </div>
 

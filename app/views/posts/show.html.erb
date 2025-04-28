@@ -1,14 +1,14 @@
 <% content_for :title, "reading: #{@post.title} | #{app_name}" %>
-<% if notice.present? %>
-  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-<% end %>
+<%# Removed per-page notice flash, now handled globally in layout %>
 <h1 class="hd1-hero">
   <%= link_to @post.title, edit_post_path(@post), class: "hover:text-green-600" %>
 </h1>
 <p class="text-xs text-gray-500 align-bottom">
   <%= @post.published_status %>
 </p>
-<p class="mt-4 mb-6"><%= @post.body %></p>
+<div class="markdown-content">
+  <%= markdown(@post.body) %>
+</div>
 
 <div class="border-t border-gray-200 mt-4 mb-2"></div>
 <div class="action-bar py-0 my-4">
