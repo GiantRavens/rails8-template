@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   before_create :set_uuid7
   before_save :set_published_date
+  belongs_to :user, optional: true
 
   validates :title, presence: true
   validates :body, presence: true

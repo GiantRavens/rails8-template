@@ -14,6 +14,9 @@
         <%= link_to post.title, post, class: "hd2 hover:text-green-600" %>
         <p class="text-xs text-gray-500 align-bottom">
           <%= post.published_status %>
+          <% if post.user %>
+            • By <%= post.user.full_name %>
+          <% end %>
         </p>
         <p class="mt-2 mb-8"><%= truncate(post.body, length: 120) %></p>
       </div>

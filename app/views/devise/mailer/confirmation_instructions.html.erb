@@ -1,0 +1,20 @@
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; color: #333;">
+  <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+    <h1 style="color: #2d3748; margin-top: 0;">Welcome to <%= app_name %>!</h1>
+  </div>
+
+  <p>Welcome <%= @email %>!</p>
+
+  <p>You can confirm your account email through the link below:</p>
+
+  <p style="margin: 25px 0;">
+    <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" style="display: inline-block; background-color: #48bb78; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold;">Confirm my account</a>
+  </p>
+
+  <p>If you didn't request this, please ignore this email.</p>
+  <p>Your account won't be created until you access the link above and set your password.</p>
+
+  <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eaeaea; font-size: 12px; color: #666;">
+    <p>&copy; <%= Time.current.year %> <%= app_name %>. All rights reserved.</p>
+  </div>
+</div>

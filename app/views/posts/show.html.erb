@@ -5,6 +5,9 @@
 </h1>
 <p class="text-xs text-gray-500 align-bottom">
   <%= @post.published_status %>
+  <% if @post.user %>
+    • By <%= @post.user.full_name %>
+  <% end %>
 </p>
 <div class="markdown-content">
   <%= markdown(@post.body) %>

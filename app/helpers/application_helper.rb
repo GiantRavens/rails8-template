@@ -36,4 +36,14 @@ module ApplicationHelper
     # Add more Open Graph tags as needed
     tags.join("\n").html_safe
   end
+
+  def user_display_name
+    if user_signed_in? && current_user.full_name.present?
+      current_user.full_name
+    elsif user_signed_in?
+      current_user.email
+    else
+      "Guest"
+    end
+  end
 end

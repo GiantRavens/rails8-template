@@ -7,4 +7,8 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def dashboard
+    authenticate_user!
+  end
 end

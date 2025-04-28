@@ -1,0 +1,59 @@
+<div class="max-w-4xl mx-auto">
+  <h1 class="hd1-hero">Welcome to Your Dashboard</h1>
+  
+  <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+    <h2 class="hd2 mb-4">Your Profile</h2>
+    <% if current_user %>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-gray-600 font-medium">Email:</p>
+          <p class="mb-2"><%= current_user.email %></p>
+          
+          <p class="text-gray-600 font-medium">Name:</p>
+          <p class="mb-2"><%= current_user.full_name %></p>
+          
+          <% if current_user.preferred_name.present? %>
+            <p class="text-gray-600 font-medium">Preferred Name:</p>
+            <p class="mb-2"><%= current_user.preferred_name %></p>
+          <% end %>
+        </div>
+        
+        <div>
+          <% if current_user.bio.present? %>
+            <p class="text-gray-600 font-medium">Bio:</p>
+            <div class="markdown-content">
+              <%= markdown(current_user.bio) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="mt-4">
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "action-link" %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <h2 class="hd2 mb-4">Your Posts</h2>
+    
+    <% if current_user && current_user.posts.any? %>
+      <div class="space-y-4">
+        <% current_user.posts.each do |post| %>
+          <div class="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0">
+            <h3 class="font-semibold text-lg">
+              <%= link_to post.title, post_path(post), class: "hover:text-green-600" %>
+            </h3>
+            <p class="text-xs text-gray-500 mb-2"><%= post.published_status %></p>
+            <p class="text-gray-700"><%= truncate(post.body, length: 100) %></p>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-gray-600">You haven't created any posts yet.</p>
+      <div class="mt-4">
+        <%= link_to "Create Your First Post", new_post_path, class: "action-link" %>
+      </div>
+    <% end %>
+  </div>
+</div>
