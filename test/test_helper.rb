@@ -10,7 +10,25 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  def sign_in_admin_as(user)
-    post(admin_sign_in_url, params: { email: user.email, password: "Secret1*3*5*" }); user
+  def sign_in_as(user)
+    post user_session_path, params: { user: { email: user.email, password: "password123" } }
+    user
+  end
+  
+  def sign_in_as_admin
+    sign_in_as(users(:admin_user))
+  end
+  
+  # For system tests
+  def login_as(user)
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "password123"
+    click_button "Sign in"
+    user
+  end
+  
+  def login_as_admin
+    login_as(users(:admin_user))
   end
 end

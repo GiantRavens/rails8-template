@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import SimpleMDE from "simplemde"
 
 export default class extends Controller {
   connect() {
@@ -7,26 +8,21 @@ export default class extends Controller {
 
   initializeEditor() {
     if (!this.element.classList.contains("simplemde-enabled")) {
-      // Load SimpleMDE from the global scope (loaded via CDN)
-      if (typeof SimpleMDE !== 'undefined') {
-        // Initialize SimpleMDE on the textarea
-        new SimpleMDE({ 
-          element: this.element,
-          spellChecker: false,
-          toolbar: [
-            "bold", "italic", "heading", "|", 
-            "quote", "unordered-list", "ordered-list", "|",
-            "link", "image", "|", 
-            "preview", "side-by-side", "fullscreen", "|",
-            "guide"
-          ]
-        })
-        
-        // Mark as initialized to prevent duplicate editors
-        this.element.classList.add("simplemde-enabled")
-      } else {
-        console.error("SimpleMDE is not loaded. Make sure the CDN script is included.")
-      }
+      // Initialize SimpleMDE on the textarea using the locally installed package
+      new SimpleMDE({ 
+        element: this.element,
+        spellChecker: false,
+        toolbar: [
+          "bold", "italic", "heading", "|", 
+          "quote", "unordered-list", "ordered-list", "|",
+          "link", "image", "|", 
+          "preview", "side-by-side", "fullscreen", "|",
+          "guide"
+        ]
+      })
+      
+      // Mark as initialized to prevent duplicate editors
+      this.element.classList.add("simplemde-enabled")
     }
   }
 }

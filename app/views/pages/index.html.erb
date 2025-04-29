@@ -1,7 +1,62 @@
 <% page_title "Home" %>
 <% meta_description "Welcome to #{app_name}. A modern Rails 8 application template featuring responsive design, Tailwind CSS components, and best practices for web development." %>
 
-<div>
-  <h1 class="hd1-hero">Pages#index</h1>
-  <p>Find me in app/views/pages/index.html.erb</p>
+<div class="py-12 md:py-20">
+  <!-- Hero Section -->
+  <div class="text-center mb-16">
+    <h1 class="hd1-hero mb-4">Welcome to <%= app_name %></h1>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      A modern Rails 8 application template with Tailwind CSS, responsive design, and authentication built-in.
+    </p>
+    <div class="mt-8 flex justify-center gap-4">
+      <% if user_signed_in? %>
+        <%= link_to "View Dashboard", dashboard_path, class: "btn btn-primary btn-lg" %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+        <%= link_to "Learn More", "#features", class: "btn btn-outline btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div id="features" class="grid md:grid-cols-3 gap-8 mb-16">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="text-primary mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Secure Authentication</h3>
+      <p class="text-gray-600">Built with Devise for robust user authentication with email confirmation and profile management.</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="text-primary mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Modern UI with Tailwind</h3>
+      <p class="text-gray-600">Beautiful, responsive interface built with Tailwind CSS components and custom design patterns.</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="text-primary mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Admin Dashboard</h3>
+      <p class="text-gray-600">Powerful admin interface for managing users and content with role-based access control.</p>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="text-center bg-gray-50 p-10 rounded-lg shadow-sm">
+    <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-6">Begin building your application with our modern Rails 8 template today.</p>
+    <% unless user_signed_in? %>
+      <%= link_to "Create Your Account", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
 </div>

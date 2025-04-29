@@ -18,7 +18,9 @@
             • By <%= post.user.full_name %>
           <% end %>
         </p>
-        <p class="mt-2 mb-8"><%= truncate(post.body, length: 120) %></p>
+        <div class="mt-2 mb-8 markdown-content">
+          <%= markdown(truncate(post.body, length: 90)) %>
+        </div>
       </div>
     <% end %>
   <% else %>

@@ -1,6 +1,29 @@
 @import "tailwindcss";
 
+@layer base {
+  body {
+    background-color: white;
+  }
+}
+
 @layer components {
+  /* Layout Components */
+  .navbar {
+    @apply bg-white text-gray-900 shadow-sm;
+  }
+  .navbar-dark {
+    @apply bg-gray-900 text-white;
+  }
+  .footer {
+    @apply bg-gray-100 text-gray-600 py-8;
+  }
+  .footer-dark {
+    @apply bg-gray-800 text-gray-300;
+  }
+  .container-main {
+    @apply max-w-[70%] mx-auto py-6;
+  }
+
   .hd1-hero {
     @apply text-4xl font-bold text-gray-900 mb-6 mt-8 leading-tight tracking-tight;
   }
@@ -20,10 +43,10 @@
     @apply mb-6;
   }
   .form-label {
-    @apply block text-gray-700 text-sm font-bold mb-2;
+    @apply block text-gray-500 text-sm font-bold mb-2;
   }
   .form-field {
-    @apply appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-green-500;
+    @apply appearance-none block w-full bg-gray-100 text-gray-900 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-500;
   }
   .form-field-error {
     @apply border-red-500;
@@ -35,12 +58,38 @@
     @apply text-red-500 text-xs italic;
   }
   .submit-button {
-    @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md shadow-sm transition w-full md:w-auto;
+    @apply bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-md shadow-sm transition w-full md:w-auto;
   }
-  .action-bar { @apply w-full flex justify-center items-center mt-4 py-4 space-x-4; }
-  .action-link { @apply text-base font-bold text-gray-700 hover:text-green-600 transition; sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 px-3.5 py-2.5 inline-block font-medium }
-  
-  /* Markdown Content Styling */
+  .action-bar { 
+    @apply w-full flex justify-center items-center mt-4 py-4 space-x-4; 
+  }
+  .action-link { 
+    @apply text-base font-bold text-gray-900 hover:text-blue-600 transition text-center px-3.5 py-2.5 inline-block font-medium;
+  }
+  .btn {
+    @apply font-medium rounded-lg px-4 py-2 transition duration-300 shadow-sm;
+  }
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+  .btn-secondary {
+    @apply bg-green-600 text-white hover:bg-green-700;
+  }
+  .btn-submit {
+    @apply bg-green-500 text-white hover:bg-green-600;
+  }
+  .btn-warning {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-outline {
+    @apply border border-gray-300 text-gray-900 hover:bg-gray-50;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+  .btn-lg {
+    @apply px-6 py-3 text-lg;
+  }
   .markdown-content { @apply text-gray-800 leading-relaxed max-w-none; }
   .markdown-content h1 { @apply text-3xl font-bold text-gray-900 mt-8 mb-4 leading-tight; }
   .markdown-content h2 { @apply text-2xl font-bold text-gray-900 mt-6 mb-4 leading-tight; }
@@ -48,7 +97,7 @@
   .markdown-content h4 { @apply text-lg font-bold text-gray-900 mt-4 mb-2; }
   .markdown-content h5 { @apply text-base font-bold text-gray-900 mt-4 mb-2; }
   .markdown-content h6 { @apply text-sm font-bold text-gray-900 mt-4 mb-2; }
-  .markdown-content p { @apply mb-4 text-base; }
+  .markdown-content p { @apply mb-4 text-gray-900; }
   .markdown-content ul { @apply list-disc pl-8 mb-4; }
   .markdown-content ol { @apply list-decimal pl-8 mb-4; }
   .markdown-content li { @apply mb-1; }
@@ -57,7 +106,7 @@
   .markdown-content code { @apply font-mono text-sm bg-gray-100 px-1 py-0.5 rounded; }
   .markdown-content pre { @apply bg-gray-100 p-4 rounded-md overflow-x-auto mb-4; }
   .markdown-content pre code { @apply bg-transparent p-0 block; }
-  .markdown-content a { @apply text-green-600 hover:text-green-700 underline; }
+  .markdown-content a { @apply text-blue-600 hover:text-blue-800 underline; }
   .markdown-content hr { @apply my-6 border-t border-gray-300; }
   .markdown-content table { @apply w-full border-collapse mb-4; }
   .markdown-content th { @apply border border-gray-300 px-4 py-2 bg-gray-100 text-left; }

@@ -18,12 +18,9 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <!-- SimpleMDE for Markdown editing -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.js"></script>
   </head>
   <body class="h-full flex flex-col">
-    <nav class="bg-[#1a202c] sticky top-0 z-50 shadow-md">
+    <nav class="navbar-dark sticky top-0 z-50">
       <div class="max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300">
         <div class="flex items-center justify-between">
           <div class="flex items-center">
@@ -37,17 +34,17 @@
             <% end %>
           </div>
           <div class="flex space-x-4">
-            <%= link_to "Posts", posts_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
-            <%= link_to "Welcome", welcome_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
-            <%= link_to "About", about_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
+            <%= link_to "Posts", posts_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
+            <%= link_to "Welcome", welcome_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
+            <%= link_to "About", about_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
             <% if user_signed_in? %>
-              <%= link_to user_display_name, dashboard_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
+              <%= link_to user_display_name, dashboard_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
               <% if current_user.is_admin? %>
                 <%= link_to "Admin", admin_root_path, class: "bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-md text-sm font-medium" %>
               <% end %>
-              <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium bg-transparent border-none cursor-pointer" %>
+              <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium bg-transparent border-none cursor-pointer" %>
             <% else %>
-              <%= link_to "Sign In", new_user_session_path, class: "text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium" %>
+              <%= link_to "Sign In", new_user_session_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
               <%= link_to "Sign Up", new_user_registration_path, class: "bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md text-sm font-medium" %>
             <% end %>
           </div>
@@ -70,13 +67,13 @@
       <% end %>
     </div>
     <main class="flex-grow">
-      <div class="max-w-[75%] mx-auto px-4 sm:px-6 lg:px-8 py-8 transition-all duration-300">
+      <div class="container-main">
         <%= yield %>
       </div>
     </main>
-    <footer class="bg-gray-200 mt-auto">
-      <div class="max-w-[70%] mx-auto px-4 sm:px-6 lg:px-8 py-6 transition-all duration-300">
-        <div class="text-center text-gray-600 text-sm">
+    <footer class="footer mt-auto">
+      <div class="container-main">
+        <div class="text-center text-sm">
           <div class="font-semibold"><%= app_name %></div>
           <div>&copy;<%= Time.current.year %> All rights reserved</div>
         </div>
