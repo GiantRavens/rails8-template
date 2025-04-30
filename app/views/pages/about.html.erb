@@ -1,6 +1,193 @@
 <% page_title "About" %>
 <% meta_description "Learn about #{app_name}, our mission, and how we're building modern web applications with Rails 8, Tailwind CSS, and cutting-edge development practices." %>
 
-<h1 class="hd1-hero">Pages#about</h1>
-<p>Find me in app/views/pages/about.html.erb</p>
+<div class="max-w-4xl mx-auto">
+  <h1 class="hd1-hero">About <%= app_name %></h1>
+  
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+    <div class="p-6">
+      <h2 class="hd2">Our Mission</h2>
+      <p class="text-gray-700 mb-4">
+        At <%= app_name %>, we're committed to creating a platform that connects people through meaningful content and conversations. Our mission is to provide a space where ideas can flourish, knowledge can be shared, and communities can thrive in a respectful, inclusive environment.
+      </p>
+      
+      <h2 class="hd2">Our Story</h2>
+      <p class="text-gray-700 mb-4">
+        Founded in <%= Time.current.year %>, <%= app_name %> began as a passion project to address the need for a more thoughtful approach to online interaction. We believe that technology should enhance human connection, not replace it. Our platform is designed with this philosophy at its core.
+      </p>
+      
+      <div class="flex flex-col md:flex-row gap-6 my-8">
+        <div class="flex-1 bg-gray-50 p-6 rounded-lg">
+          <div class="text-center mb-4">
+            <div class="inline-block p-3 bg-blue-100 rounded-full">
+              <svg class="h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="hd3 text-center">Customization</h3>
+          <p class="text-gray-600 text-center">Personalize your experience with flexible settings and options that adapt to your needs.</p>
+        </div>
+        
+        <div class="flex-1 bg-gray-50 p-6 rounded-lg">
+          <div class="text-center mb-4">
+            <div class="inline-block p-3 bg-green-100 rounded-full">
+              <svg class="h-8 w-8 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="hd3 text-center">Security</h3>
+          <p class="text-gray-600 text-center">Your data is protected with industry-standard security practices and transparent privacy policies.</p>
+        </div>
+        
+        <div class="flex-1 bg-gray-50 p-6 rounded-lg">
+          <div class="text-center mb-4">
+            <div class="inline-block p-3 bg-purple-100 rounded-full">
+              <svg class="h-8 w-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="hd3 text-center">Community</h3>
+          <p class="text-gray-600 text-center">Join a diverse community of users who share ideas, provide feedback, and collaborate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+    <div class="p-6">
+      <h2 class="hd2">Our Technology</h2>
+      <p class="text-gray-700 mb-6">
+        We're proud to build on cutting-edge technologies that provide a robust, secure, and delightful user experience:
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="font-semibold text-lg mb-2">Rails 8</h3>
+          <p class="text-gray-600">The latest version of Ruby on Rails powers our backend, providing a solid foundation for rapid development and reliable performance.</p>
+        </div>
+        
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="font-semibold text-lg mb-2">Tailwind CSS</h3>
+          <p class="text-gray-600">Our user interface is built with Tailwind CSS, enabling a responsive, accessible, and visually consistent design system.</p>
+        </div>
+        
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="font-semibold text-lg mb-2">Hotwire</h3>
+          <p class="text-gray-600">We use Hotwire to create fast, dynamic interfaces without the complexity of a full JavaScript framework.</p>
+        </div>
+        
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="font-semibold text-lg mb-2">PostgreSQL</h3>
+          <p class="text-gray-600">Our data is stored in PostgreSQL, a powerful, open-source database known for its reliability and advanced features.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+    <div class="p-6">
+      <h2 class="hd2">Meet the Team</h2>
+      <p class="text-gray-700 mb-6">
+        Our diverse team brings together expertise in web development, design, and community building to create an exceptional platform for our users.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full bg-gray-300 mx-auto mb-4 overflow-hidden">
+            <svg class="h-full w-full text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Alex Johnson</h3>
+          <p class="text-gray-600">Founder & CEO</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full bg-gray-300 mx-auto mb-4 overflow-hidden">
+            <svg class="h-full w-full text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Sam Rivera</h3>
+          <p class="text-gray-600">Lead Developer</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full bg-gray-300 mx-auto mb-4 overflow-hidden">
+            <svg class="h-full w-full text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Taylor Kim</h3>
+          <p class="text-gray-600">UX Designer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+    <div class="p-6">
+      <h2 class="hd2">Contact Us</h2>
+      <p class="text-gray-700 mb-4">
+        We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out to us.
+      </p>
+      
+      <div class="flex flex-col md:flex-row gap-6 mt-6">
+        <div class="flex-1">
+          <div class="flex items-center mb-4">
+            <svg class="h-6 w-6 text-gray-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span class="text-gray-700">support@example.com</span>
+          </div>
+          
+          <div class="flex items-center mb-4">
+            <svg class="h-6 w-6 text-gray-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span class="text-gray-700">(555) 123-4567</span>
+          </div>
+          
+          <div class="flex items-center">
+            <svg class="h-6 w-6 text-gray-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="text-gray-700">123 Tech Lane, San Francisco, CA 94107</span>
+          </div>
+        </div>
+        
+        <div class="flex-1">
+          <div class="flex space-x-4 justify-center md:justify-end">
+            <a href="#" class="text-blue-600 hover:text-blue-800">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            
+            <a href="#" class="text-blue-400 hover:text-blue-600">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+              </svg>
+            </a>
+            
+            <a href="#" class="text-red-600 hover:text-red-800">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+              </svg>
+            </a>
+            
+            <a href="#" class="text-gray-600 hover:text-gray-800">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

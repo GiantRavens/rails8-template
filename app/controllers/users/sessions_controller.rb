@@ -27,6 +27,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # The path used after sign in.
   def after_sign_in_path_for(resource)
-    dashboard_path
+    welcome_path
   end
 end

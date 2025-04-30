@@ -1,23 +1,18 @@
 <% page_title "Forgot Password" %>
 <% meta_description "Reset your #{app_name} password by requesting a password reset email with instructions." %>
-
 <div class="max-w-md mx-auto my-8">
   <h2 class="hd1-hero text-center">Forgot your password?</h2>
-
   <div class="form-container">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form-section" }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-
       <div class="form-field-group">
         <%= f.label :email, class: "form-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-field" %>
       </div>
-
-      <div class="form-field-group">
+      <div class="mt-8 mb-2">
         <%= f.submit "Send me reset instructions", class: "submit-button w-full" %>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
   </div>
+  <%= render "devise/shared/links" %>
 </div>

@@ -60,14 +60,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.active_for_authentication?
       dashboard_path
     else
-      # Path for users who need to confirm their account
-      new_user_session_path
+      # Redirect to the confirmation page
+      confirmation_path
     end
   end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    # For users who need to confirm their account
-    new_user_session_path
+    # Redirect to the confirmation page
+    confirmation_path
   end
 end

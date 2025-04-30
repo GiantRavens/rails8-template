@@ -2,9 +2,8 @@
 
 <%# Removed per-page notice flash, now handled globally in layout %>
 
-<div class="flex justify-between items-center">
+<div>
   <h1 class="hd1-hero">All Post Entries</h1>
-  <%= link_to "New post", new_post_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
 </div>
 
 <div id="posts" class="min-w-full space-y-5">
@@ -26,4 +25,9 @@
   <% else %>
     <p class="text-center my-10">No posts created yet.</p>
   <% end %>
+</div>
+
+<div class="border-t border-gray-200 mt-4 mb-2"></div>
+<div class="action-bar py-0 my-4">
+  <%= link_to "New post", new_post_path, class: "action-link" %>
 </div>

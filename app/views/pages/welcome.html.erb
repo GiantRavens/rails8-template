@@ -1,7 +1,96 @@
 <% page_title "Welcome" %>
-<% meta_description "Get started with #{app_name}. Explore our modern web application featuring responsive design, dynamic components, and seamless user experience." %>
+<% meta_description "Your #{app_name} home page. Access your personalized dashboard, recent activity, and quick links." %>
 
-<div>
-  <h1 class="hd1-hero">Pages#welcome</h1>
-  <p>Find me in app/views/pages/welcome.html.erb</p>
+<div class="max-w-6xl mx-auto my-8 px-4">
+  <h1 class="hd1-hero text-center"><%= app_name %> Home</h1>
+  
+  <div class="mt-8 grid md:grid-cols-3 gap-6">
+    <!-- Main content area -->
+    <div class="md:col-span-2 space-y-6">
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Welcome back, <%= current_user.first_name || current_user.email.split('@').first %>!</h2>
+        <p class="text-gray-600">Here's what's happening in your <%= app_name %> account.</p>
+      </div>
+      
+      <div class="bg-white shadow rounded-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold text-gray-800">Recent Activity</h2>
+          <a href="#" class="text-sm text-green-600 hover:text-green-700">View all</a>
+        </div>
+        
+        <% if false # Replace with actual activity check %>
+          <div class="space-y-4">
+            <!-- Activity items would go here -->
+          </div>
+        <% else %>
+          <div class="text-center py-6 text-gray-500">
+            <p>No recent activity to display.</p>
+            <p class="mt-2 text-sm">Start by creating your first post or updating your profile.</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="space-y-6">
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h2>
+        <div class="space-y-3">
+          <%= link_to new_post_path, class: "flex items-center p-3 rounded-md hover:bg-gray-50 transition" do %>
+            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </div>
+            <div>
+              <span class="block font-medium text-gray-800">Create Post</span>
+              <span class="block text-sm text-gray-500">Share something new</span>
+            </div>
+          <% end %>
+          
+          <%= link_to edit_user_registration_path, class: "flex items-center p-3 rounded-md hover:bg-gray-50 transition" do %>
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <div>
+              <span class="block font-medium text-gray-800">Edit Profile</span>
+              <span class="block text-sm text-gray-500">Update your information</span>
+            </div>
+          <% end %>
+          
+          <%= link_to dashboard_path, class: "flex items-center p-3 rounded-md hover:bg-gray-50 transition" do %>
+            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <div>
+              <span class="block font-medium text-gray-800">Dashboard</span>
+              <span class="block text-sm text-gray-500">View your statistics</span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Account Status</h2>
+        <div class="space-y-2">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Member since</span>
+            <span class="font-medium"><%= current_user.created_at.strftime("%B %d, %Y") %></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Email</span>
+            <span class="font-medium"><%= current_user.email %></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Status</span>
+            <span class="font-medium text-green-600">Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

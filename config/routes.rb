@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"
   get "dashboard", to: "pages#dashboard"
+  get "confirmation", to: "pages#confirmation"
+  get "confirmed", to: "pages#confirmed"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
   # Devise routes with custom controllers
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    confirmations: 'users/confirmations'
   }
 end

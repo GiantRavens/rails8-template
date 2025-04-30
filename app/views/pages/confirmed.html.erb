@@ -1,0 +1,45 @@
+<% content_for :head do %>
+  <meta http-equiv="refresh" content="5;url=<%= welcome_path %>">
+<% end %>
+
+<div class="max-w-3xl mx-auto text-center py-12">
+  <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
+    <div class="flex justify-center mb-6">
+      <div class="rounded-full bg-green-100 p-3">
+        <svg class="h-12 w-12 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+    </div>
+    
+    <h1 class="hd1-hero text-center">Account Confirmed!</h1>
+    
+    <p class="text-lg text-gray-600 mb-6">
+      Your email has been successfully verified and your account is now active.
+    </p>
+    
+    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="ml-3">
+          <p class="text-sm text-blue-700">
+            You'll be automatically redirected to your account home page in 5 seconds...
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-6">
+      <%= link_to welcome_path, class: "submit-button inline-block" do %>
+        Continue to My Account
+        <svg class="inline-block ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      <% end %>
+    </div>
+  </div>
+</div>

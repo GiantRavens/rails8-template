@@ -31,7 +31,8 @@
         </div>
       </div>
       
-      <div class="mt-4">
+      <div class="border-t border-gray-200 mt-4 mb-2"></div>
+      <div class="action-bar py-0 my-2">
         <%= link_to "Edit Profile", edit_user_registration_path, class: "action-link" %>
       </div>
     <% end %>
@@ -52,9 +53,16 @@
           </div>
         <% end %>
       </div>
+      
+      <div class="border-t border-gray-200 mt-4 mb-2"></div>
+      <div class="action-bar py-0 my-2">
+        <%= link_to "New Post", new_post_path, class: "action-link" %>
+      </div>
     <% else %>
       <p class="text-gray-600">You haven't created any posts yet.</p>
-      <div class="mt-4">
+      
+      <div class="border-t border-gray-200 mt-4 mb-2"></div>
+      <div class="action-bar py-0 my-2">
         <%= link_to "Create Your First Post", new_post_path, class: "action-link" %>
       </div>
     <% end %>

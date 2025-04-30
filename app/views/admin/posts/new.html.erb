@@ -1,18 +1,18 @@
-
 <% page_title "Admin Directly Create New Post" %>
 <% meta_description "Administrator direct post creation in the #{Rails.application.config.app_name} application." %>
 
 
-<div class="mb-8 flex justify-between items-center">
-  <div>
-    <h1 class="hd1-hero">Admin Create New Post</h1>
-    <p class="mt-2 text-sm text-gray-700">Create a new blog post with direct access to all attributes.</p>
-  </div>
-  <div>
-    <%= link_to "Back to Posts", admin_posts_path, class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-  </div>
+<div class="mb-8">
+  <h1 class="hd1-hero">Admin Create New Post</h1>
+  <p class="mt-2 text-sm text-gray-700">Create a new blog post with direct access to all attributes.</p>
 </div>
 
 <div class="bg-white shadow overflow-hidden sm:rounded-lg p-6">
   <%= render "form", post: @post %>
+</div>
+
+<div class="border-t border-gray-200 mt-4 mb-2"></div>
+<div class="action-bar py-0 my-4">
+  <%= link_to "Back to Posts", admin_posts_path, class: "action-link" %>
+  <%= link_to "Back to Dashboard", admin_root_path, class: "action-link" %>
 </div>
