@@ -61,7 +61,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  
+
   # Catch and view emails in the browser
   # install from brewgem 'mailcatcher', '~> 0.9.0'  # Version known to work with Ruby 3+
 end

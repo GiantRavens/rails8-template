@@ -1,5 +1,5 @@
 class Admin::PostsController < Admin::BaseController
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [ :edit, :update, :destroy ]
 
   def index
     @page_title = "Admin: Posts"
@@ -20,7 +20,7 @@ class Admin::PostsController < Admin::BaseController
     @post.user = current_user
 
     if @post.save
-      redirect_to admin_posts_path, notice: 'Post was successfully created.'
+      redirect_to admin_posts_path, notice: "Post was successfully created."
     else
       @page_title = "Admin: New Post"
       render :new, status: :unprocessable_entity
@@ -29,7 +29,7 @@ class Admin::PostsController < Admin::BaseController
 
   def update
     if @post.update(post_params)
-      redirect_to admin_posts_path, notice: 'Post was successfully updated.'
+      redirect_to admin_posts_path, notice: "Post was successfully updated."
     else
       @page_title = "Admin: Edit Post - #{@post.title}"
       render :edit, status: :unprocessable_entity
@@ -38,7 +38,7 @@ class Admin::PostsController < Admin::BaseController
 
   def destroy
     @post.destroy
-    redirect_to admin_posts_path, notice: 'Post was successfully deleted.'
+    redirect_to admin_posts_path, notice: "Post was successfully deleted."
   end
 
   private

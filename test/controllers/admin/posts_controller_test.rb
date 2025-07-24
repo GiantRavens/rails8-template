@@ -4,7 +4,7 @@ class Admin::PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     # Sign in as admin user from fixtures
     @admin = sign_in_as_admin
-    
+
     # Create a post for testing
     @post = Post.create!(title: "Test Post", body: "Test content", is_published: true, published_date: Time.current)
   end
@@ -55,11 +55,11 @@ class Admin::PostsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to admin_posts_url
   end
-  
+
   test "should toggle publish status" do
     original_status = @post.is_published
     patch toggle_publish_admin_post_url(@post)
-    
+
     @post.reload
     assert_equal !original_status, @post.is_published
     assert_redirected_to admin_posts_url
