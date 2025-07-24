@@ -425,7 +425,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  bootsnap
+  bootsnap (~> 1.18.6)
   brakeman
   capybara
   debug
@@ -443,7 +443,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   sanitize (~> 7.0)
   selenium-webdriver
-  solid_cable
+  solid_cable (~> 3.0.11)
   solid_cache
   solid_queue
   spreadsheet_architect
