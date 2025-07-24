@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
-    get '/', to: 'dashboard#index', as: :root
-    resources :users, except: [:show]
-    resources :posts, except: [:show]
+    get "/", to: "dashboard#index", as: :root
+    resources :users, except: [ :show ]
+    resources :posts, except: [ :show ]
   end
-  
+
   resources :posts, param: :id
   # Define the root path
-  root to: 'pages#index'
+  root to: "pages#index"
   get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"
   get "dashboard", to: "pages#dashboard"
@@ -26,8 +26,8 @@ Rails.application.routes.draw do
 
   # Devise routes with custom controllers
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions',
-    confirmations: 'users/confirmations'
+    registrations: "users/registrations",
+    sessions: "users/sessions",
+    confirmations: "users/confirmations"
   }
 end

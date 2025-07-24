@@ -14,11 +14,11 @@ class ActiveSupport::TestCase
     post user_session_path, params: { user: { email: user.email, password: "password123" } }
     user
   end
-  
+
   def sign_in_as_admin
     sign_in_as(users(:admin_user))
   end
-  
+
   # For system tests
   def login_as(user)
     visit new_user_session_path
@@ -27,7 +27,7 @@ class ActiveSupport::TestCase
     click_button "Sign in"
     user
   end
-  
+
   def login_as_admin
     login_as(users(:admin_user))
   end

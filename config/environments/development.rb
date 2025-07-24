@@ -32,11 +32,11 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Devise mailer configuration
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+
   # Use mailcatcher for email testing
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
+  config.action_mailer.smtp_settings = { address: "127.0.0.1", port: 1025 }
   config.action_mailer.raise_delivery_errors = false
 
   # Make template changes take effect immediately.

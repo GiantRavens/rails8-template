@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   # GET /posts or /posts.json
   def index
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: "Post successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
-        flash.now[:alert] = @post.errors.full_messages.join('<br>').html_safe
+        flash.now[:alert] = @post.errors.full_messages.join("<br>").html_safe
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: "Post successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
-        flash.now[:alert] = @post.errors.full_messages.join('<br>').html_safe
+        flash.now[:alert] = @post.errors.full_messages.join("<br>").html_safe
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end

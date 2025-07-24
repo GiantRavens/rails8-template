@@ -42,11 +42,11 @@ class UpdateUsersForDevise < ActiveRecord::Migration[8.0]
 
     # Copy data from the old table to the new one
     execute <<-SQL
-      INSERT INTO users_new (id, email, encrypted_password, first_name, last_name, preferred_name, bio, 
-                           reset_password_token, reset_password_sent_at, remember_created_at, 
+      INSERT INTO users_new (id, email, encrypted_password, first_name, last_name, preferred_name, bio,#{' '}
+                           reset_password_token, reset_password_sent_at, remember_created_at,#{' '}
                            created_at, updated_at)
-      SELECT COALESCE(CAST(id AS TEXT), '#{Random.uuid_v7}'), email, encrypted_password, name_first, name_last, name_preferred, bio, 
-             reset_password_token, reset_password_sent_at, remember_created_at, 
+      SELECT COALESCE(CAST(id AS TEXT), '#{Random.uuid_v7}'), email, encrypted_password, name_first, name_last, name_preferred, bio,#{' '}
+             reset_password_token, reset_password_sent_at, remember_created_at,#{' '}
              created_at, updated_at
       FROM users;
     SQL

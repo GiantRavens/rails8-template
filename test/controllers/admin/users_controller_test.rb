@@ -53,14 +53,14 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to admin_users_url
   end
-  
+
   test "non-admin cannot access admin pages" do
     # Sign out admin
     delete destroy_user_session_path
-    
+
     # Sign in as regular user
     sign_in_as(@user)
-    
+
     # Try to access admin page
     get admin_users_url
     assert_redirected_to root_url
