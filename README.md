@@ -2,6 +2,16 @@
 
 A production-ready Rails 8 template with modern tooling and best practices. This template provides a solid foundation for building secure, scalable web applications with a focus on developer experience and maintainability.
 
+To get started you probably want to run:
+
+```
+bundle update
+rails db:create
+bin/rails db:schema:load
+rails db:migrate
+rails tailwindcss:build
+```
+
 ## 🚀 Features
 
 ### Core Stack
