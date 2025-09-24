@@ -443,7 +443,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   sanitize (~> 7.0)
   selenium-webdriver
-  solid_cable (~> 3.0.11)
+  solid_cable (~> 3.0.12)
   solid_cache
   solid_queue
   spreadsheet_architect
